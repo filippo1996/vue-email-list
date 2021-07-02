@@ -15,7 +15,7 @@
         <h1 class="title text-center">Mailing List per il marketing online</h1>
         <div class="container-input" v-if="!start">
            <label for="qtyEmail">Quanti Intirizzi email vuoi caricare?</label>
-           <input type="number" placeholder="Numero di email" v-model.number='qty' @keyup.enter="downloadEmails">
+           <input type="number" id="qtyEmail" placeholder="Numero di email" v-model.number='qty' @keyup.enter="downloadEmails">
            <button class="btn" @click="downloadEmails">Carica</button>
         </div>
         <div v-else v-cloak>
