@@ -13,6 +13,10 @@
 <body>
     <div id="app" class="container">
         <h1 class="title text-center">Mailing List per il marketing online</h1>
+        <div v-if="load" class="container-loader">
+            <div class="loader"></div>
+            <p class="message">Caricamento in corso, attendere...</p>
+        </div>
         <ul class="emails" v-if="emails.length === qty">
             <li v-for="(email, index) in emails" class="list" v-cloak>
                 {{index + 1}}) <a :href="'mailto:' + email">{{email}}</a>

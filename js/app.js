@@ -2,8 +2,9 @@ const app = new Vue({
     el: '#app',
     data: {
         emails: [],
-        qty: 10,
-        error: ''
+        qty: 40,
+        error: '',
+        load: true
     },
    async mounted(){
         /*
@@ -24,8 +25,10 @@ const app = new Vue({
                let response = await axios
                 .get('https://flynn.boolean.careers/exercises/api/random/mail');
                this.emails.push(response.data.response);
+               if(this.emails.length === this.qty) this.load = false;
             }catch(e){
                 this.error = e;
+                this.load = false;
                 break mails;
             }
         }
