@@ -13,16 +13,23 @@
 <body>
     <div id="app" class="container">
         <h1 class="title text-center">Mailing List per il marketing online</h1>
-        <div v-if="load" class="container-loader">
-            <div class="loader"></div>
-            <p class="message">Caricamento in corso, attendere...</p>
+        <div class="container-input" v-if="!start">
+           <label for="qtyEmail">Quanti Intirizzi email vuoi caricare?</label>
+           <input type="number" placeholder="Numero di email" v-model.number='qty' @keyup.enter="downloadEmails">
+           <button class="btn" @click="downloadEmails">Carica</button>
         </div>
-        <ul class="emails" v-if="emails.length === qty">
-            <li v-for="(email, index) in emails" class="list" v-cloak>
-                {{index + 1}}) <a :href="'mailto:' + email">{{email}}</a>
-            </li>
-        </ul>
-        <div v-if="error" class="error" v-cloak>{{error}}</div>
+        <div v-else v-cloak>
+            <div v-if="load" class="container-loader">
+                <div class="loader"></div>
+                <p class="message">Caricamento in corso, attendere...</p>
+            </div>
+            <ul class="emails" v-if="emails.length === qty">
+                <li v-for="(email, index) in emails" class="list" v-cloak>
+                    {{index + 1}}) <a :href="'mailto:' + email">{{email}}</a>
+                </li>
+            </ul>
+            <div v-if="error" class="error" v-cloak>{{error}}</div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

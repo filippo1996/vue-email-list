@@ -29,6 +29,24 @@ body{
     padding: 20px 0;
 }
 
+.container-input{
+    text-align: center;
+    padding: 20px;
+}
+
+.container-input label{
+    display: block;
+    margin-bottom: 15px;
+}
+
+input{
+    padding: 5px 20px;
+}
+
+.btn{
+    padding: 5px 15px;
+}
+
 .emails{
     padding: 20px 50px;
 }

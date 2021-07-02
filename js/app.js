@@ -2,8 +2,9 @@ const app = new Vue({
     el: '#app',
     data: {
         emails: [],
-        qty: 40,
+        qty: null,
         error: '',
+        start: false,
         load: true
     },
    async mounted(){
@@ -20,6 +21,7 @@ const app = new Vue({
         */
 
         //Questo ci permette di interrompere subito il ciclo in caso il server restituisca un errore
+        /*
         mails:for(let i = 0; i < this.qty; i++){
             try{
                let response = await axios
@@ -32,6 +34,24 @@ const app = new Vue({
                 break mails;
             }
         }
+        */
 
+    },
+    methods: {
+        async downloadEmails(){
+            mails:for(let i = 0; i < this.qty; i++){
+                this.start = true;
+                try{
+                   let response = await axios
+                    .get('https://flynn.boolean.careers/exercises/api/random/mail');
+                   this.emails.push(response.data.response);
+                   if(this.emails.length === this.qty) this.load = false;
+                }catch(e){
+                    this.error = e;
+                    this.load = false;
+                    break mails;
+                }
+            }
+        }
     }
 });
