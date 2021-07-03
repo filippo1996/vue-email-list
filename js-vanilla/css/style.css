@@ -1,0 +1,96 @@
+/* common */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    background: lightblue;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.title{
+    text-transform: uppercase;
+    margin: 20px 0;
+    padding: 20px 0;
+}
+
+.container-input{
+    text-align: center;
+    padding: 20px;
+}
+
+.container-input label{
+    display: block;
+    margin-bottom: 15px;
+}
+
+input{
+    padding: 5px 20px;
+}
+
+.btn{
+    padding: 5px 15px;
+}
+
+.emails{
+    padding: 20px 50px;
+}
+
+.list{
+    list-style: none;
+    line-height: 2.0;
+    font-size: 1.5rem;
+}
+
+.error{
+    background: red;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+.container-loader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.message{
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
